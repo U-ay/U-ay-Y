@@ -1,0 +1,21 @@
+/* src/pages/Home.css */
+
+.home-container {
+    padding: 32px;
+    background-color: var(--background-default);
+    min-height: 100vh;
+  }
+  
+  .home-header {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  
+  .home-header .MuiTypography-h4 {
+    color: var(--primary-main);
+  }
+  
+  .home-header .MuiTypography-subtitle1 {
+    color: var(--text-secondary);
+  }
+  

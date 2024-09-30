@@ -1,0 +1,80 @@
+/* src/components/Tweet.css */
+
+.tweet {
+  padding: 16px;
+  border-bottom: 1px solid var(--text-secondary);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.tweet:hover {
+  background-color: var(--background-hover); /* Slight hover effect */
+}
+
+.tweet-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.tweet-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+.tweet-header-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.tweet-user {
+  font-weight: bold;
+  font-size: 1rem;
+  color: var(--text-primary);
+}
+
+.tweet-timestamp {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.tweet-content {
+  font-size: 1rem;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+.tweet-actions {
+  display: flex;
+  gap: 24px;
+  margin-top: 8px;
+  justify-content: start;
+  align-items: center;
+}
+
+.like-button,
+.retweet-button {
+  padding: 6px;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.like-button:hover,
+.retweet-button:hover {
+  transform: scale(1.15);
+}
+
+.like-button:hover {
+  color: #e0245e; /* Twitter-like red for likes */
+}
+
+.retweet-button:hover {
+  color: #17bf63; /* Twitter-like green for retweets */
+}
+
+.action-count {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
