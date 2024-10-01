@@ -1,27 +1,28 @@
+// src/pages/ProfilePage.js
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { db, auth } from '../firebase';
 import { doc, getDoc, updateDoc, arrayUnion, arrayRemove } from 'firebase/firestore';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Box, Typography, CircularProgress, Avatar, Button } from '@mui/material';
-import TweetList from '../components/TweetList';
-import AvatarUploader from '../components/AvatarUploader'; // Component for uploading avatars
-import defaultAvatar from '../assets/default-avatar.png'; // Default avatar
+import UaiList from '../components/UaiList';
+import AvatarUploader from '../components/AvatarUploader'; // Componente para fazer upload de avatares
+import defaultAvatar from '../assets/default-avatar.png'; // Avatar padrão
 import './ProfilePage.css';
 
 function ProfilePage() {
-  const { userId } = useParams(); // Get userId from URL params
+  const { userId } = useParams(); // Obtém o userId dos parâmetros da URL
   const [currentUser] = useAuthState(auth);
   const [profile, setProfile] = useState(null);
   const [loadingProfile, setLoadingProfile] = useState(true);
-  const [isFollowing, setIsFollowing] = useState(false); // State for following
-  const [followersCount, setFollowersCount] = useState(0); // Followers count
+  const [isFollowing, setIsFollowing] = useState(false); // Estado de seguir
+  const [followersCount, setFollowersCount] = useState(0); // Contagem de seguidores
 
   useEffect(() => {
     const fetchProfile = async () => {
       let targetUserId = userId;
       if (!targetUserId && currentUser) {
-        // If no userId is provided, show the logged-in user's profile
+        // Se nenhum userId for fornecido, mostra o perfil do usuário logado
         targetUserId = currentUser.uid;
       }
 
@@ -37,7 +38,7 @@ function ProfilePage() {
         setProfile({ id: targetUserId, ...profileData });
         setFollowersCount(profileData.followers?.length || 0);
 
-        // Check if current user is following the profile user
+        // Verifica se o usuário atual está seguindo o perfil
         if (currentUser && profileData.followers?.includes(currentUser.uid)) {
           setIsFollowing(true);
         }
@@ -56,7 +57,7 @@ function ProfilePage() {
 
     try {
       if (isFollowing) {
-        // Unfollow the user
+        // Deixar de seguir o usuário
         await updateDoc(currentUserRef, {
           following: arrayRemove(profile.id)
         });
@@ -66,7 +67,7 @@ function ProfilePage() {
         setIsFollowing(false);
         setFollowersCount(followersCount - 1);
       } else {
-        // Follow the user
+        // Seguir o usuário
         await updateDoc(currentUserRef, {
           following: arrayUnion(profile.id)
         });
@@ -102,29 +103,28 @@ function ProfilePage() {
   return (
     <Box className="profile-container">
       <Box className="profile-header">
-        {/* Display the profile avatar, fallback to defaultAvatar if not available */}
+        {/* Exibe o avatar do perfil, usa defaultAvatar se não estiver disponível */}
         <Avatar src={profile.photoURL || defaultAvatar} alt={profile.username} className="profile-avatar" />
-        <Typography variant="h4" color="text.primary">{profile.username}</Typography>
+        <Typography variant="h4" color="text.primary" className="profile-username">{profile.username}</Typography>
         
-        {/* Display number of followers */}
-        <Typography variant="body2" color="text.secondary">
+        {/* Exibe o número de seguidores */}
+        <Typography variant="body2" color="text.secondary" className="profile-followers">
           Seguidores: {followersCount}
         </Typography>
 
-        {/* Show follow/unfollow button if not the logged-in user's own profile */}
+        {/* Mostra o botão de seguir/deixar de seguir se não for o próprio perfil do usuário logado */}
         {currentUser?.uid !== profile.id && (
-          <Button variant={isFollowing ? "outlined" : "contained"} color="primary" onClick={handleFollow}>
+          <Button variant={isFollowing ? "outlined" : "contained"} color="primary" onClick={handleFollow} className="profile-action-button">
             {isFollowing ? 'Deixar de seguir' : 'Seguir'}
           </Button>
         )}
 
-        {/* Show AvatarUploader only for the logged-in user viewing their own profile */}
+        {/* Mostra o AvatarUploader apenas para o usuário logado visualizando seu próprio perfil */}
         {currentUser?.uid === profile.id && <AvatarUploader />}
       </Box>
       
-      <Box className="profile-tweets">
-        <Typography variant="h5" color="text.primary">Tweets</Typography>
-        <TweetList userId={profile.id} />
+      <Box className="profile-uais">
+        <UaiList userId={profile.id} />
       </Box>
     </Box>
   );

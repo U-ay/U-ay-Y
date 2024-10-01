@@ -1,21 +1,61 @@
-/* src/pages/Home.css */
-
 .home-container {
-    padding: 32px;
-    background-color: var(--background-default);
-    min-height: 100vh;
-  }
-  
-  .home-header {
-    text-align: center;
-    margin-bottom: 24px;
-  }
-  
-  .home-header .MuiTypography-h4 {
-    color: var(--primary-main);
-  }
-  
-  .home-header .MuiTypography-subtitle1 {
-    color: var(--text-secondary);
-  }
-  
+  max-width: 600px;
+  margin: 0 auto;
+  border-left: 1px solid #e6ecf0;
+  border-right: 1px solid #e6ecf0;
+  background-color: #f5f8fa; /* Fundo leve e suave */
+  min-height: 100vh; /* Para garantir que o contêiner ocupe toda a tela */
+  padding-bottom: 50px; /* Espaço para o rodapé */
+  margin-top: 20px;
+}
+
+.home-header {
+  position: sticky;
+  top: 0;
+  background-color: #ffffff; /* Fundo branco */
+  padding: 12px 16px;
+  border-bottom: 1px solid #e6ecf0;
+  z-index: 1;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Sombra leve para dar destaque */
+}
+
+.home-header h4 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #14171a; /* Cor de texto mais escura */
+}
+
+.view-toggle-buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+  gap: 8px; /* Espaço entre os botões */
+}
+
+.view-toggle-buttons button {
+  padding: 8px 16px;
+  font-weight: bold;
+  border: none;
+  background-color: #e6ecf0; /* Cinza claro */
+  color: #657786; /* Cinza escuro para o texto */
+  border-radius: 9999px; /* Totalmente arredondado */
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Animação suave ao interagir */
+}
+
+.view-toggle-buttons .active {
+  background-color: #ff9800; /* Laranja do site */
+  color: #ffffff; /* Texto branco quando ativo */
+  box-shadow: 0 4px 10px rgba(255, 111, 0, 0.3); /* Sombra para destaque */
+}
+
+.view-toggle-buttons button:hover {
+  background-color: #cfd9de; /* Alteração de cor ao passar o mouse */
+  color: #14171a; /* Cor de texto mais escura */
+}
+
+.view-toggle-buttons button:active {
+  background-color: #ff8c00; /* Tom mais escuro do laranja quando clicado */
+  box-shadow: 0 6px 12px rgba(255, 111, 0, 0.4); /* Mais sombra ao clicar */
+}
+

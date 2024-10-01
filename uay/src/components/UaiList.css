@@ -1,0 +1,26 @@
+/* src/components/UaiList.css */
+
+.uailist-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin-top: 20px;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 40px;
+  color: #657786;
+}
+
+.load-more-button {
+  margin: 16px auto;
+  color: #ff9800;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.load-more-button:hover {
+  text-decoration: underline;
+}

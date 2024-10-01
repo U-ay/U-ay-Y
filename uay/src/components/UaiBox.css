@@ -1,0 +1,93 @@
+.uaibox-container {
+  display: flex;
+  padding: 16px;
+  border-bottom: 1px solid #e6ecf0;
+  border-radius: 20px; /* Adiciona bordas arredondadas */
+  background-color: #ffffff; /* Fundo branco */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra leve para destacar */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.uaibox-container:hover {
+  background-color: #f4f6f8; /* Fundo levemente mais claro ao passar o mouse */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Mais sombra ao passar o mouse */
+}
+
+.uaibox-avatar {
+  width: 50px; /* Aumentando o tamanho do avatar */
+  height: 50px;
+  border-radius: 50%; /* Arredondado */
+  margin-right: 16px;
+  border: 2px solid #ff9800; /* Laranja do site para o avatar */
+}
+
+.uaibox-content {
+  flex: 1;
+}
+
+.uaibox-textfield {
+  width: 100%;
+  border: none;
+  font-size: 18px;
+  resize: none;
+  outline: none;
+  margin-bottom: 12px;
+  padding: 8px;
+  font-family: 'Roboto', sans-serif;
+  border-radius: 16px; /* Bordas arredondadas no campo de texto */
+  background-color: #f9f9f9; /* Cor de fundo suave */
+  transition: background-color 0.3s ease;
+}
+
+.uaibox-textfield:hover,
+.uaibox-textfield:focus {
+  background-color: #ffffff; /* Fundo branco ao focar */
+  box-shadow: 0 0 0 2px #ff6f00; /* Sombra laranja ao focar */
+}
+
+.uaibox-textfield::placeholder {
+  color: #657786;
+  font-style: italic; /* Placeholder mais estiloso */
+}
+
+.uaibox-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.uaibox-file-upload {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  color: #ff9800; /* Laranja do site */
+  cursor: pointer;
+}
+
+.uaibox-file-upload:hover {
+  color: #ff9800; /* Laranja mais claro ao passar o mouse */
+}
+
+.uaibox-button {
+  background-color: #ff9800; /* Laranja do site */
+  color: #fff;
+  border: none;
+  border-radius: 9999px; /* Muito arredondado */
+  padding: 10px 20px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.uaibox-button:disabled {
+  background-color: #ff9800; /* Laranja claro para desabilitado */
+  cursor: default;
+}
+
+.uaibox-button:not(:disabled):hover {
+  background-color: #ff9800; /* Laranja mais escuro ao passar o mouse */
+  box-shadow: 0 4px 12px rgba(255, 111, 0, 0.4); /* Sombra ao passar o mouse */
+}

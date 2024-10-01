@@ -1,4 +1,3 @@
-// src/components/RetweetModal.js
 import React, { useState } from 'react';
 import { Modal, Box, Typography, TextField, Button } from '@mui/material';
 import { db, auth } from '../firebase';

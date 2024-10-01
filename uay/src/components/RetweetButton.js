@@ -1,13 +1,14 @@
-// src/components/RetweetButton.js
 import React, { useState } from 'react';
 import { IconButton, Typography, Snackbar, Alert } from '@mui/material';
 import RepeatIcon from '@mui/icons-material/Repeat';
 import { db, auth } from '../firebase';
 import { doc, updateDoc, arrayUnion, arrayRemove, increment } from 'firebase/firestore';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import RetweetModal from './RetweetModal'; // Import the RetweetModal
 
 function RetweetButton({ tweet }) {
   const [user] = useAuthState(auth);
+  const [openModal, setOpenModal] = useState(false); // State to open/close the modal
   const [snackbar, setSnackbar] = useState({
     open: false,
     message: '',
@@ -25,7 +26,7 @@ function RetweetButton({ tweet }) {
 
     try {
       if (hasRetweeted) {
-        // Remover retweet
+        // Remove retweet
         await updateDoc(tweetRef, {
           retweets: increment(-1),
           retweetedBy: arrayRemove(user.uid),
@@ -36,7 +37,7 @@ function RetweetButton({ tweet }) {
           severity: "info",
         });
       } else {
-        // Adicionar retweet
+        // Add retweet without comment
         await updateDoc(tweetRef, {
           retweets: increment(1),
           retweetedBy: arrayUnion(user.uid),
@@ -57,6 +58,14 @@ function RetweetButton({ tweet }) {
     }
   };
 
+  const handleQuoteRetweet = () => {
+    if (!user) {
+      alert("Você precisa estar logado para retweetar.");
+      return;
+    }
+    setOpenModal(true); // Open the modal for quote retweet
+  };
+
   const handleCloseSnackbar = (event, reason) => {
     if (reason === 'clickaway') {
       return;
@@ -70,6 +79,16 @@ function RetweetButton({ tweet }) {
         <RepeatIcon color={(tweet.retweetedBy || []).includes(user?.uid) ? "success" : "inherit"} />
       </IconButton>
       <Typography variant="body2" className="action-count">{tweet.retweets}</Typography>
+
+      {/* Button to open the retweet with comment modal */}
+      <IconButton onClick={handleQuoteRetweet} className="quote-retweet-button">
+        <RepeatIcon />
+        <Typography variant="caption">Adicionar Comentário</Typography>
+      </IconButton>
+
+      {/* Retweet with comment modal */}
+      <RetweetModal open={openModal} handleClose={() => setOpenModal(false)} tweetId={tweet.id} />
+
       <Snackbar
         open={snackbar.open}
         autoHideDuration={6000}

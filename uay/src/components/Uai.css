@@ -1,0 +1,168 @@
+/* src/components/Uai.css */
+
+/* Estilo geral do uai */
+.uai {
+  display: flex;
+  padding: 12px 16px;
+  border-bottom: 1px solid #e6ecf0;
+  transition: background-color 0.2s ease;
+}
+
+.uai:hover {
+  background-color: #f5f8fa;
+  cursor: pointer;
+}
+
+/* Avatar do usuário */
+.uai-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  margin-right: 12px;
+}
+
+/* Container do conteúdo do uai */
+.uai-content {
+  flex: 1;
+}
+
+/* Cabeçalho do uai (nome de usuário e timestamp) */
+.uai-header-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.uai-user {
+  font-weight: bold;
+  color: #ff9800;
+  font-size: 15px;
+}
+
+.uai-username {
+  color: #657786;
+  font-size: 15px;
+}
+
+.uai-timestamp {
+  color: #657786;
+  font-size: 13px;
+}
+
+/* Texto do uai */
+.uai-text {
+  color: #14171a;
+  font-size: 15px;
+  margin-top: 4px;
+  word-wrap: break-word;
+}
+
+/* Mídia (imagens ou vídeos) */
+.uai-media {
+  margin-top: 8px;
+  border-radius: 12px;
+  max-width: 100%;
+}
+
+.uai-media img,
+.uai-media video {
+  border-radius: 12px;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Ações do uai (curtir, re-uai, comentar) */
+.uai-actions {
+  display: flex;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.uai-actions .MuiIconButton-root {
+  padding: 8px;
+  color: #657786;
+}
+
+.uai-actions .MuiIconButton-root:hover {
+  color: #ff9800;
+}
+
+.action-count {
+  font-size: 14px;
+  color: #657786;
+  margin-right: 16px;
+}
+
+/* Comentários */
+.uai-comments {
+  margin-top: 12px;
+  border-top: 1px solid #e6ecf0;
+  padding-top: 12px;
+}
+
+.uai-comment {
+  display: flex;
+  margin-bottom: 12px;
+}
+
+.uai-comment-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.uai-comment-content {
+  flex: 1;
+}
+
+.uai-comment-user {
+  font-weight: bold;
+  color: #1da1f2;
+  font-size: 14px;
+}
+
+.uai-comment-text {
+  color: #14171a;
+  font-size: 14px;
+  margin-top: 2px;
+}
+
+.uai-comment-timestamp {
+  color: #657786;
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+/* Subcomentários */
+.uai-subcomments {
+  margin-left: 40px;
+  margin-top: 8px;
+}
+
+/* Botão de adicionar comentário */
+.add-comment-button {
+  margin-top: 12px;
+  color: #1da1f2;
+  font-size: 14px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.add-comment-button:hover {
+  text-decoration: underline;
+}
+
+/* Modal */
+.modal-box {
+  background-color: #fff;
+  border-radius: 12px;
+}
+
+.uai-original {
+  margin-top: 8px;
+  padding: 8px;
+  background-color: #f5f8fa;
+  border-radius: 12px;
+}

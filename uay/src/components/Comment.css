@@ -1,0 +1,105 @@
+/* Estilo para o container principal do comentário */
+.comment {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  border: 1px solid #e0e0e0;
+}
+
+/* Header do comentário (avatar e informações do usuário) */
+.comment-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.comment-header .MuiAvatar-root {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+/* Estilo para o conteúdo do comentário */
+.comment-content {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Estilo para a data/hora do comentário */
+.comment-timestamp {
+  font-size: 12px;
+  color: #888;
+  margin-left: auto;
+}
+
+/* Estilo para o botão de responder (ou seja, para subcomentários) */
+.reply-button {
+  font-size: 12px;
+  color: #007bff;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.reply-button:hover {
+  text-decoration: underline;
+}
+
+/* Campo para adicionar uma nova resposta (subcomentário) */
+.reply-input {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.reply-input textarea {
+  width: 100%;
+  min-height: 60px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  resize: vertical;
+}
+
+.reply-input button {
+  align-self: flex-end;
+  margin-top: 5px;
+  padding: 6px 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.reply-input button:hover {
+  background-color: #0056b3;
+}
+
+/* Estilo para os subcomentários */
+.sub-comments {
+  margin-left: 40px;
+  margin-top: 10px;
+  border-left: 2px solid #e0e0e0;
+  padding-left: 10px;
+}
+
+/* Estilo do botão para expandir/ver mais comentários */
+.expand-button {
+  font-size: 12px;
+  color: #007bff;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.expand-button:hover {
+  text-decoration: underline;
+}

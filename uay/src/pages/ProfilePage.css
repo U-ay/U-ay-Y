@@ -1,185 +1,54 @@
-:root {
-  --primary-color: #3f51b5;
-  --secondary-color: #f50057;
-  --background-color: #f4f6f8;
-  --card-background-color: #fff;
-  --text-color: #333;
-  --text-muted-color: #777;
-  --border-radius: 12px;
-  --box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-  --hover-box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-  --gradient-bg: linear-gradient(135deg, rgba(63, 81, 181, 0.9), rgba(245, 0, 87, 0.9));
-  --transition-ease: 0.4s ease-in-out;
-}
-
-body {
-  background-color: var(--background-color);
-  font-family: 'Roboto', sans-serif;
-}
+/* src/pages/ProfilePage.css */
 
 .profile-container {
-  padding: 40px;
-  background-color: var(--card-background-color);
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-shadow: var(--box-shadow);
-  border-radius: var(--border-radius);
-  max-width: 900px;
+  max-width: 600px;
   margin: 0 auto;
-  transition: all var(--transition-ease);
+  border-left: 1px solid #e6ecf0;
+  border-right: 1px solid #e6ecf0;
 }
 
 .profile-header {
+  padding: 12px 16px;
+  border-bottom: 1px solid #e6ecf0;
+  position: relative;
   text-align: center;
-  margin-bottom: 32px;
-  padding-bottom: 32px;
-  border-bottom: 2px solid var(--primary-color);
 }
 
 .profile-avatar {
-  width: 140px;
-  height: 140px;
-  margin: 0 auto 16px auto;
+  width: 72px;
+  height: 72px;
   border-radius: 50%;
-  border: 4px solid var(--primary-color);
-  box-shadow: var(--box-shadow);
-  transition: all var(--transition-ease);
-}
-
-.profile-avatar:hover {
-  transform: scale(1.1);
-  box-shadow: var(--hover-box-shadow);
+  margin-bottom: 8px;
 }
 
 .profile-username {
-  color: var(--primary-color);
-  font-size: 28px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  transition: color var(--transition-ease);
-}
-
-.profile-username:hover {
-  color: var(--secondary-color);
+  font-size: 20px;
+  font-weight: bold;
+  color: #14171a;
 }
 
 .profile-followers {
-  color: var(--text-muted-color);
-  font-size: 16px;
-  margin-top: 8px;
+  color: #657786;
+  font-size: 15px;
 }
 
-.profile-action-buttons {
-  display: flex;
-  gap: 16px;
-  margin-top: 16px;
-  justify-content: center;
-}
-
-.profile-action-buttons button {
-  padding: 12px 24px;
-  font-size: 16px;
-  font-weight: 600;
-  background-color: var(--primary-color);
-  color: white;
-  border: none;
-  border-radius: var(--border-radius);
-  box-shadow: var(--box-shadow);
-  cursor: pointer;
-  transition: background-color var(--transition-ease), transform var(--transition-ease);
-}
-
-.profile-action-buttons button:hover {
-  background-color: var(--secondary-color);
-  transform: scale(1.05);
-}
-
-.profile-tweets {
-  width: 100%;
-  margin-top: 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.profile-tweet {
-  background-color: var(--card-background-color);
-  padding: 20px;
-  border-radius: var(--border-radius);
-  box-shadow: var(--box-shadow);
-  margin-bottom: 16px;
-  transition: all var(--transition-ease);
-  position: relative;
-}
-
-.profile-tweet:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--hover-box-shadow);
-}
-
-.profile-tweet-content {
-  font-size: 18px;
-  color: var(--text-color);
-  margin-bottom: 10px;
-}
-
-.profile-tweet-timestamp {
-  font-size: 13px;
-  color: var(--text-muted-color);
+.profile-action-button {
   position: absolute;
-  bottom: 16px;
-  right: 20px;
-}
-
-.change-avatar-container {
-  margin-top: 24px;
-  text-align: center;
-}
-
-.change-avatar-input {
-  display: inline-block;
-  margin-top: 16px;
-}
-
-.change-avatar-button {
-  margin-top: 12px;
-  padding: 12px 24px;
-  background: var(--gradient-bg);
-  color: white;
+  top: 12px;
+  right: 16px;
+  background-color: #1da1f2;
+  color: #fff;
   border: none;
-  border-radius: var(--border-radius);
-  box-shadow: var(--box-shadow);
-  transition: background-color var(--transition-ease), transform var(--transition-ease);
+  border-radius: 9999px;
+  padding: 8px 16px;
+  font-weight: bold;
   cursor: pointer;
 }
 
-.change-avatar-button:hover {
-  background-color: var(--secondary-color);
-  transform: scale(1.05);
+.profile-action-button:hover {
+  background-color: #1a91da;
 }
 
-@media (max-width: 768px) {
-  .profile-container {
-    padding: 20px;
-  }
-
-  .profile-avatar {
-    width: 100px;
-    height: 100px;
-  }
-
-  .profile-username {
-    font-size: 22px;
-  }
-
-  .profile-action-buttons button {
-    padding: 10px 20px;
-    font-size: 14px;
-  }
-
-  .profile-tweet-content {
-    font-size: 16px;
-  }
+.profile-uais {
+  margin-top: 8px;
 }
